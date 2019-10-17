@@ -1,0 +1,7 @@
+
+
+<div #container class="console">
+    <div class="item" *ngFor="let msg of msgsFrame; trackBy: trackByIdx" [ngStyle]="getMsgStyle(msg)">
+      {{msg.text}}
+    </div>
+</div>

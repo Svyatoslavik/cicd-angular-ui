@@ -1,0 +1,23 @@
+<clr-main-container>
+  <clr-header>
+      <div class="branding">
+        <div class="logo">
+          <svg-icon src="assets/logo.svg"></svg-icon>
+        </div>
+       
+      </div>
+  
+    <div class="header-nav" [clr-nav-level]="1">
+      <a routerLink="/dashboard" routerLinkActive="active" class="nav-link nav-text">Dashboard</a>
+      <a routerLink="/builds/list" routerLinkActive="active" class="nav-link nav-text">Builds list</a>
+    </div>
+  </clr-header>
+
+  <div class="content-container">
+    <main class="content-area">
+        <app-blockui-loading *ngIf="loading"></app-blockui-loading>
+      <ng-content></ng-content>
+    </main>
+  </div>
+
+</clr-main-container>

@@ -1,0 +1,23 @@
+<clr-datagrid>
+    <clr-dg-column [clrDgField]="'id'" [clrDgColType]="'number'">#</clr-dg-column>
+    <clr-dg-column [clrDgField]="'startedAt'">Started time</clr-dg-column>
+    <clr-dg-column [clrDgField]="'finishedAt'">Finished time</clr-dg-column>
+    <clr-dg-column [clrDgField]="'status'">Status</clr-dg-column>
+    <clr-dg-column>Actions</clr-dg-column>
+
+    <clr-dg-row *clrDgItems="let build of list; trackBy: trackById">
+        <clr-dg-cell>#{{build.id}}</clr-dg-cell>
+        <clr-dg-cell>{{build.startedAt | date: 'short'}}</clr-dg-cell>
+        <clr-dg-cell>{{build.finishedAt | date: 'short'}}</clr-dg-cell>
+        <clr-dg-cell>{{build.status}}</clr-dg-cell>
+        <clr-dg-cell><a [routerLink]="['/builds/details', build.id]">Veiw details</a></clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>
+      <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Builds per page</clr-dg-page-size>
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        of {{pagination.totalItems}} builds
+    </clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>

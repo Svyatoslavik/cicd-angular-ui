@@ -1,0 +1,15 @@
+
+<clr-accordion>
+  <clr-accordion-panel *ngFor="let step of stepsList;trackBy: trackByName">
+    <clr-accordion-title>
+      {{step.name}} - {{step.status}}
+    </clr-accordion-title>
+    <clr-accordion-content *clrIfExpanded>
+      <app-step-item 
+        [loading]="loading"
+        [step]="step" 
+        [msgStream$]="msgStream$"
+        (requestLoadLogs)="onRequestLoadLogs(step.id, $event)"></app-step-item>
+    </clr-accordion-content>
+  </clr-accordion-panel>
+</clr-accordion>

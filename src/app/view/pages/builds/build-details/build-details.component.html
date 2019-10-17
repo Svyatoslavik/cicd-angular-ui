@@ -1,0 +1,9 @@
+<app-main-layout [loading]="loading$|async">
+    <h1>Build details</h1>
+    <app-error-msg [msg]="error$|async"></app-error-msg>
+
+    <ng-container *ngIf="build$ | async as build">
+      <h2>#{{build.id}} - {{build.status}}</h2>
+      <app-steps-list-view (requestLoadLogs)="onRequestLoadLogs($event)" [loading]="loadingStep$|async" [stepsList]="steps$|async" [msgStream$]="msgStream$"></app-steps-list-view>
+    </ng-container>
+</app-main-layout>

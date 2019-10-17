@@ -1,0 +1,4 @@
+<!-- there are can be some other step detaisl like start at, etc... -->
+<div class="console-wrapper">
+  <app-step-steam-view [loading]="loading" [step]="step" [msgStream$]="msgStream$" (requestLoadLogs)="requestLoadLogs.emit($event)"></app-step-steam-view>
+</div>

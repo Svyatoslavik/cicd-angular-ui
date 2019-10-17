@@ -1,0 +1,5 @@
+<app-main-layout [loading]="loading$|async">
+  <h1>Builds list</h1>
+  <button class="btn btn-primary" (click)="startNewBuild()">Start new build</button>
+  <app-builds-list-view [list]="buildsList$ | async"></app-builds-list-view>
+</app-main-layout>
