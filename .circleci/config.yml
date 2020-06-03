@@ -1,0 +1,17 @@
+version: 2.1
+jobs:
+  build-and-test:
+   docker:
+  - image: circleci/node:latest
+    environment:
+      CHROME_BIN: /usr/bin/google-chrome
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+workflows:
+    build-and-test:
+      jobs:
+        - build-and-test
