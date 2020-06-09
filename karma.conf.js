@@ -21,11 +21,21 @@ module.exports = function (config) {
       fixWebpackSourcePaths: true
     },
     reporters: ['progress', 'kjhtml'],
+    customLaunchers: {
+        ChromeHeadlessNoSandbox: {
+            base: 'ChromeHeadless',
+            flags: [
+                '--no-sandbox', // required to run without privileges in docker
+                '--user-data-dir=/tmp/chrome-test-profile',
+                '--disable-web-security'
+            ]
+        }
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadlessNoSandbox'],
     singleRun: false,
     restartOnFileChange: true
   });
