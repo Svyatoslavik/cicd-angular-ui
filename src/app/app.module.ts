@@ -13,10 +13,12 @@ import { AppStoreModule } from './core/store/store.module';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { BuildLoaderMock } from 'src/simulator/build-loader-mock.service';
 import { BuildLoaderService } from './core/loaders/abstract/build-loader.service';
+import { DummyComponent } from './test/dummy/dummy.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DummyComponent
   ],
   imports: [
     BrowserModule,
